@@ -1,0 +1,40 @@
+[project]
+
+name = "msim"
+version = "0.0.1"
+description = "Python tools for Missile-Simulations"
+license-files = [ "LICENSE" ]
+readme = "README.md"
+requires-python = ">=3.11"
+classifiers = [
+    "Programming Language :: Python :: 3.11"
+]
+
+#  Dependencies
+dependencies = [
+    'jupyterlab',
+    'numpy',
+    'pandas',
+    'plotly',
+    'pandas',
+    'pyproj',
+    'scipy'
+]
+
+#  Optional Dependencies
+[project.optional-dependencies]
+dev = [ 'black' ]
+
+#  Project Information
+[project.urls]
+"Homepage" = "https://github.com/Terminus-Geospatial/msim"
+
+[project.scripts]
+trackgen = "tmns.app.trackgen.main:run_command"
+
+#  Configure the build system
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+
