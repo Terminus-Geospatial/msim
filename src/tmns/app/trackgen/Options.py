@@ -21,6 +21,14 @@ class Options:
         self.cmd_args = cmd_args
         self.cfg_args = cfg_args
 
+        self.init_logging()
+
+
+    def init_logging(self):
+
+        logging.basicConfig( level = self.cmd_args.log_level )
+        
+        return logging.getLogger( 'trackgen' )
 
     @staticmethod
     def parse_command_line():
@@ -84,8 +92,15 @@ class Options:
             fout.write( '# General Settings\n' )
             fout.write( '[general]\n' )
             fout.write( '\n' )
+            fout.write( '#  Base path (no extension) for output files\n' )
+            fout.write( 'output_base=demo.01\n' )
             fout.write( '#  Number of missile events\n' )
             fout.write( 'number_missiles=1\n' )
+            fout.write( '\n' )
+            fout.write( '#  Timing Characteristics\n' )
+            fout.write( 'start_time_unix=0\n' )
+            fout.write( 'simulation_time_secs=500\n' )
+            fout.write( 'step_time_ms=500\n' )
             fout.write( '\n' )
 
             #  Write missile event
@@ -95,8 +110,24 @@ class Options:
             fout.write( '# ID Value\n' )
             fout.write( 'id=1\n' )
             fout.write( '\n' )
+            fout.write( '#  Motion Model\n' )
+            fout.write( 'motion_type=straight\n' )
+            fout.write( '\n' )
             fout.write( '#  Launch Position\n' )
             fout.write( 'launch_position_latitude=39.545218\n')
             fout.write( 'launch_position_longitude=-104.844892\n')
             fout.write( 'launch_position_elevation=1806\n')
+            fout.write( '\n' )
+            fout.write( '# Missile Characteristics\n' )
+            fout.write( 'missile_mass_kg=900\n' )
+            fout.write( 'missile_radius_m=0.25\n' )
+            fout.write( 'missile_thrust_kN=107873.15\n' )
+            fout.write( 'missile_drag_coefficient=0.05\n' )
+            fout.write( 'air_mass_density=1.2\n' )
+            fout.write( '\n' )
+            fout.write( '# Launch Characteristics\n' )
+            fout.write( 'launch_pitch_degrees=60\n' )
+            fout.write( 'launch_yaw_degrees=-45\n' )
+            fout.write( 'start_time_offset_sec=10\n' )
+            fout.write( 'burn_time_sec=60\n' )
             fout.write( '\n' )
