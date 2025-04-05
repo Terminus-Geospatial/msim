@@ -52,7 +52,7 @@ class Track_Writer:
                 
                 point = kml.Placemark( f'Time: {unix_time}',
                                        geometry = coord )
-                missile_folder.append_node( )
+                missile_folder.append_node( point )
 
             missiles_dir.append_node( missile_folder )
                 

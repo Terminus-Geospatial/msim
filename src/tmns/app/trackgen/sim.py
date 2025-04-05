@@ -36,22 +36,18 @@ def run_simulation( config:   Options,
             
             #  Get the information about the vehicle
             info = missile.info()
-            print( info )
-            logger.debug( f'Missile:{missile.id}\n', info )
+            
+            logger.debug( f'Missile:{info['id']}\n', info )
             writer.add_missile_entry( midx = info['id'],
                                       unix_time = start_time_unix + t_cur,
-                                       position = info['position'] )
+                                      position = info['position'] )
             
             #  update the next time step
-            logger.debug( 'Start of update' )
             missile.update( t_delta = t_step )
-            logger.debug( 'End of update' )
 
         #  Increment time step
         t_cur += t_step
         iterations += 1
-
-        break
 
     #  Write everything to disk
     writer.write_all()

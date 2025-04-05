@@ -15,7 +15,7 @@ class Missile:
 
         #  Get information from the motion model
         output = self.motion_model.info()
-        output['id'] = id
+        output['id'] = self.id
 
         return output
     
